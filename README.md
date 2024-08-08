@@ -51,11 +51,10 @@ Laravel Contact Form Test
 - Docker Compose
 
 ## ER図
-![ER Diagram](path/to/er-diagram.png)
+
 
 ## URL
 - 開発環境: [http://localhost:81](http://localhost:81)
 
-## 環境変数 (.env)
-以下の環境変数は、`.env`ファイルに設定されます：
+
 
