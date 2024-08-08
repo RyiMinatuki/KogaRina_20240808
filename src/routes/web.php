@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ContactController::class, 'create'])->name('contact.create');
+Route::post('/', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
+Route::post('/confirm', [ContactController::class, 'send'])->name('contact.send');
+
+Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
+
+Route::get('/admin', [UserController::class, 'admin'])->name('admin');
+
+Route::get('/register', [UserController::class, 'create'])->name('register');
+Route::post('/register', [UserController::class, 'store'])->name('register.store');
+
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'authenticate'])->name('login.authenticate');
