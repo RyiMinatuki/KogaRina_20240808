@@ -9,7 +9,6 @@ Laravel Contact Form Test
 1. **リポジトリをクローン**
     ```bash
     git clone git@github.com:RyiMinatuki/KogaRina_20240808.git
-    cd contact-form-test
     ```
 
 2. **Dockerコンテナのビルドと起動**
