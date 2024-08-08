@@ -2,42 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 use Illuminate\Http\Request;
-// use App\Http\Controllers\ContactController; 
-// ↑自分で考えたコード　これはweb.phpに書かなきゃいけないやつ
 
 class ContactController extends Controller
 {
-    // Route::get('/', [ContactController::class, 'index']);　
-    // ↑自分で考えたコード　これはweb.phpに書かなきゃいけないやつ
-
     public function index()
     {
-        return view('index');
+        return view('contact.index');
     }
-    // ↑答えのコード index.blade.php（フォーム入力ページ）を呼び出す
 
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
-        $contact = $request->only(['name', 'email', 'tel', 'content']);
-
-        // // // return $contact;
-        // // return view('confirm');
-        // // // ↑viewファイルの呼び出し（1）
-
-        // return view('confirm', ['contact' => $contact]);
-        // // ↑（1）に追加の記述。viewファイルを呼び出して、viewメソッドの第二引数に連想配列を指定。viewファイル側で連想配列のキーを指定することで、そのキーに対応した値を表示できる。（2）
-
-        return view('confirm', compact('contact'));
-        // ↑（2）の記述をcompact関数を使ってシンプルに記述した形
-
+        $data = $request->all();
+        return view('contact.confirm', compact('data'));
     }
 
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        $contact = $request->only(['name', 'email', 'tel', 'content']);
+        Contact::create($request->all());
+        return redirect('/thanks');
     }
-    // ↑わかんなかったので答え見た。confirm.blade.phpのformタグから送信された値を受け取るstoreアクション。
-    // store=ストア。保存するという意味。
-    
+
+    public function admin()
+    {
+        $contacts = Contact::paginate(7);
+        return view('admin.index', compact('contacts'));
+    }
 }

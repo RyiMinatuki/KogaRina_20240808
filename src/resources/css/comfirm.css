@@ -1,0 +1,85 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.header {
+    background-color: #eee5dc;
+    padding: 10px 0;
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+}
+
+.confirm-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.confirm-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.confirm-table th,
+.confirm-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.confirm-table th {
+    background-color: #eee5dc;
+    width: 30%;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.send-button,
+.edit-button {
+    background-color: #8b7a74;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.send-button:hover,
+.edit-button:hover {
+    background-color: #705c53;
+}
+
+.edit-button {
+    background-color: #8b7a74;
+    color: #fff;
+}
