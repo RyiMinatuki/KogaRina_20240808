@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理画面 - FashionablyLate</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <body>
@@ -23,7 +24,6 @@
             </select>
             <select name="category" class="search-select">
                 <option value="">お問い合わせの種類</option>
-                <!-- カテゴリのオプションを追加 -->
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}" @if(request('category') == $category->id) selected @endif>{{ $category->name }}</option>
                 @endforeach
